@@ -1,18 +1,25 @@
 <html>
 
 	<head>
-		<title>yaya</title>
+		<title>title</title>
 	</head>
 
 	<script>
-		console.log('load');
-		document.title = 'gogogo';
-
+		const args = location.href.substring(location.href.indexOf('?') + 1).split('&');
+		let url, protocol;
+		for (const arg of args) {
+			if (arg.startsWith('t=')) {
+				document.title = arg.substring('t='.length);
+			} else if (arg.startsWith('u=')) {
+				url = u;
+			} else if (arg.startsWith('p=')) {
+				protocol = arg.substring('p='.length);
+			}
+		}
+		location = `${protocol}://${url}`;
 	</script>
 
 	<body>
-		omg wtf
-
 	</body>
 
 </html>
