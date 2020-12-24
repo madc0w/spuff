@@ -5,16 +5,15 @@
 	</head>
 
 	<script>
-		// https://gglabs.com/~mad/projects/spuff/index-01.html?t=fafa&u=google.com&p=https
-		const args = location.href.substring(location.href.indexOf('?') + 1).split('&');
-		let url, protocol = 'https';
+		const args = location.href.substring(location.href.indexOf("?") + 1).split("&");
+		let url, protocol = "https";
 		for (const arg of args) {
-			if (arg.startsWith('t=')) {
-				document.title = arg.substring('t='.length);
-			} else if (arg.startsWith('u=')) {
-				url = arg.substring('u='.length);
-			} else if (arg.startsWith('p=')) {
-				protocol = arg.substring('p='.length);
+			if (arg.startsWith("t=")) {
+				document.title = arg.substring("t=".length);
+			} else if (arg.startsWith("u=")) {
+				url = arg.substring("u=".length).replaceAll('%2F', '/');
+			} else if (arg.startsWith("p=")) {
+				protocol = arg.substring("p=".length);
 			}
 		}
 		location = `${protocol}://${url}`;
